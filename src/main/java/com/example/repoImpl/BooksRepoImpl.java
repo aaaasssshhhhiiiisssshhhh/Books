@@ -1,11 +1,12 @@
 package com.example.repoImpl;
 
 
+import com.example.Exception.BookIdAlreadyExistsException;
 import com.example.FirebaseIdGenerator;
 import com.example.Mapper.BooksEntityMapper;
 import com.example.model.Books;
 import com.example.useCase.BooksDao;
-import com.example.useCase.BooksRepoUseCase;
+import com.example.useCase.BooksRepo;
 import jakarta.inject.Singleton;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 
 
 @Singleton
-public class BooksRepoImpl implements BooksRepoUseCase {
+public class BooksRepoImpl implements BooksRepo {
      private final BooksEntityMapper mapper;
      private final BooksDao dao;
 
@@ -32,7 +33,7 @@ public class BooksRepoImpl implements BooksRepoUseCase {
             return bookId;
         }
         if (doesBookExists(book.getBookId(), book.getName()))
-            throw new RuntimeException("book with "+ book.getBookId() + " with " + book.getName() + " already exit.");
+            throw new BookIdAlreadyExistsException("book with "+ book.getBookId() + " with " + book.getName() + " already exit.");
         dao.create(entity);
         return book.getBookId();
     }

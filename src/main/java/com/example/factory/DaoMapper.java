@@ -2,11 +2,13 @@ package com.example.factory;
 
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.mapper.MapperBuilder;
+import com.datastax.oss.driver.api.mapper.annotations.Dao;
 import com.datastax.oss.driver.api.mapper.annotations.DaoFactory;
 import com.datastax.oss.driver.api.mapper.annotations.Mapper;
 import com.datastax.oss.driver.internal.mapper.processor.dao.DaoDeleteMethodGenerator;
 import com.datastax.oss.driver.internal.mapper.processor.dao.DaoMethodGenerator;
 import com.example.useCase.BooksDao;
+import com.example.useCase.UserDao;
 
 import java.util.Locale;
 
@@ -22,4 +24,6 @@ public interface DaoMapper {
 
     @DaoFactory
     BooksDao getBooksDao();
+    @DaoFactory
+    UserDao getuserDao();
 }

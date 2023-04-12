@@ -3,6 +3,7 @@ package com.example.factory;
 
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.example.useCase.BooksDao;
+import com.example.useCase.UserDao;
 import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;
 import io.micronaut.context.annotation.Requires;
@@ -20,5 +21,12 @@ public class DaoFactory {
     @Singleton
     public BooksDao getBooks(){
         return mapper.getBooksDao();
+    }
+
+    @Bean
+    @Singleton
+    public UserDao getUser(){
+        return mapper.getuserDao();
+
     }
 }

@@ -4,7 +4,7 @@ import com.example.model.Books;
 
 import java.util.List;
 
-public interface BooksRepoUseCase {
+public interface BooksRepo {
 
     String addBooks (Books book);
     boolean updateBooks (Books books);

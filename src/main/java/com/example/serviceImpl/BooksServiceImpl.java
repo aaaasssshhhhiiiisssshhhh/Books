@@ -1,17 +1,17 @@
 package com.example.serviceImpl;
 
 import com.example.model.Books;
-import com.example.repoImpl.BooksRepoImpl;
+import com.example.useCase.BooksRepo;
 import com.example.useCase.BooksUseCase;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.List;
 
 public class BooksServiceImpl implements BooksUseCase {
-    private final BooksRepoImpl repo;
+    private final BooksRepo repo;
     private final ObjectMapper mapper;
 
-    public BooksServiceImpl(BooksRepoImpl repo, ObjectMapper mapper) {
+    public BooksServiceImpl(BooksRepo repo, ObjectMapper mapper) {
         this.repo = repo;
         this.mapper = mapper;
     }
